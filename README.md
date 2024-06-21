@@ -14,7 +14,7 @@ Para comenzar con el proyecto, sigue estos pasos:
 2. **Clonar el repositorio:**
    - Abre tu terminal y ejecuta:
      ```
-     git clone https://github.com/A01635458/iWise-Library.git
+     https://github.com/richyhoopd/iWise-Library-App
      ```
    - Esto descargará el código del proyecto en tu máquina local.
 
