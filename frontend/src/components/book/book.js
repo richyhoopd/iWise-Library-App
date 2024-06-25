@@ -102,7 +102,7 @@ export const Book = () => {
                     >
                         <Tab label="Detalles del libro" tabIndex={0} />
 
-                        <Tab label="Historial de stock" tabIndex={2} />
+
                     </Tabs>
 
                     <TabPanel value={openTab} index={0}>
@@ -117,7 +117,7 @@ export const Book = () => {
                                     </TableRow>
                                     <TableRow>
                                         <TableCell variant="head" component="th">
-                                            ISBN
+                                            Clave
                                         </TableCell>
                                         <TableCell>{book.isbn}</TableCell>
                                     </TableRow>

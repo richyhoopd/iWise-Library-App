@@ -132,7 +132,7 @@ export const BookForm = () => {
                         </FormControl>
                         <FormControl className={classes.mb2}>
                             <TextField
-                                label="ISBN"
+                                label="Clave"
                                 name="isbn"
                                 required
                                 value={book.isbn}
@@ -145,22 +145,18 @@ export const BookForm = () => {
                         <FormControl className={classes.mb2}>
                             <InputLabel>Categoria</InputLabel>
                             <Select name="category" value={book.category} onChange={updateBookField} required>
-                                <MenuItem value="Sci-Fi">Sci-Fi</MenuItem>
-                                <MenuItem value="Action">Action</MenuItem>
-                                <MenuItem value="Adventure">Adventure</MenuItem>
-                                <MenuItem value="Horror">Horror</MenuItem>
-                                <MenuItem value="Romance">Romance</MenuItem>
-                                <MenuItem value="Mystery">Mystery</MenuItem>
-                                <MenuItem value="Thriller">Thriller</MenuItem>
-                                <MenuItem value="Drama">Drama</MenuItem>
-                                <MenuItem value="Fantasy">Fantasy</MenuItem>
-                                <MenuItem value="Comedy">Comedy</MenuItem>
-                                <MenuItem value="Biography">Biography</MenuItem>
-                                <MenuItem value="History">History</MenuItem>
-                                <MenuItem value="Western">Western</MenuItem>
-                                <MenuItem value="Literature">Literature</MenuItem>
-                                <MenuItem value="Poetry">Poetry</MenuItem>
-                                <MenuItem value="Philosophy">Philosophy</MenuItem>
+                                <MenuItem value="Biografías">Biografías</MenuItem>
+                                <MenuItem value="Desarrollo Personal">Desarrollo Personal</MenuItem>
+                                <MenuItem value="Empoderamiento Femenino">Empoderamiento Femenino</MenuItem>
+                                <MenuItem value="Liderazgo">Liderazgo</MenuItem>
+                                <MenuItem value="Negocios y Finanzas">Negocios y Finanzas</MenuItem>
+                                <MenuItem value="Novelas">Novelas</MenuItem>
+                                <MenuItem value="Poemas">Poemas</MenuItem>
+                                <MenuItem value="Tecnologia">Tecnología</MenuItem>
+                                <MenuItem value="Revistas">Revistas</MenuItem>
+                                <MenuItem value="Inovacion">Inovación</MenuItem>
+                                <MenuItem value="Otro">Otro</MenuItem>
+                                
                             </Select>
                         </FormControl>
                         

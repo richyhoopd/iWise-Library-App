@@ -74,7 +74,7 @@ export const BooksList = () => {
                                 <TableHead>
                                     <TableRow>
                                         <TableCell>Nombre</TableCell>
-                                        <TableCell align="right">ISBN</TableCell>
+                                        <TableCell align="right">Clave</TableCell>
                                         <TableCell>Categoria</TableCell>
                                         <TableCell align="right">Cantidad</TableCell>
                                         <TableCell align="right">Disponible</TableCell>
@@ -172,7 +172,9 @@ export const BooksList = () => {
             {
                 user && !isAdmin && (
                     <>
+                  
                         <div className={`${classes.pageHeader} ${classes.mb2}`}>
+                            
                             <Typography variant="h5">Libros prestados</Typography>
                         </div>
                         {borrowedBook.length > 0 ? (
