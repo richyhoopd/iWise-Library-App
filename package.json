@@ -1,0 +1,31 @@
+{
+  "name": "iwise-library-app",
+  "version": "1.0.0",
+  "description": "### Bienvenido/a al Proyecto iWise Library",
+  "main": "Server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "cd ./backend/src && node app.js "
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/richyhoopd/iWise-Library-App.git"
+  },
+  "dependencies": {
+    "cookie-parser": "~1.4.4",
+    "debug": "~2.6.9",
+    "dotenv": "^16.0.1",
+    "express": "~4.16.1",
+    "express-session": "^1.17.3",
+    "mongodb": "^4.8.1",
+    "mongoose": "^6.5.0",
+    "morgan": "~1.9.1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/richyhoopd/iWise-Library-App/issues"
+  },
+  "homepage": "https://github.com/richyhoopd/iWise-Library-App#readme"
+}
