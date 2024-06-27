@@ -8,6 +8,7 @@ const sessions = require("express-session")
 const { apiV1 } = require("./routes")
 const { connectDb } = require("./db")
 const { UserModel } = require("./models/user")
+const path = require('path')  // Asegúrate de importar el módulo path
 
 const app = express()
 
@@ -56,7 +57,8 @@ connectDb()
     }
   })
   .then(() => {
-    app.listen(8080, () => console.log("Server is listening on http://localhost:8080"))
+    const port = process.env.PORT || 8080;  // Usar el puerto de las variables de entorno
+    app.listen(port, () => console.log(`Server is listening on http://localhost:${port}`))
   })
   .catch((err) => {
     console.error("Failed to connect to database", err)
