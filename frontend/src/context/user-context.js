@@ -27,8 +27,8 @@ const UserProvider = ({ children }) => {
         }).catch(console.error)
     }, [])
 
-    const loginUser = async (username, password) => {
-        const { user, error } = await BackendApi.user.login(username, password)
+    const loginUser = async (email, password) => {
+        const { user, error } = await BackendApi.user.login(email, password)
         if (error) {
             NotificationManager.error(error)
         } else {

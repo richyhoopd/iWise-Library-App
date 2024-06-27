@@ -14,12 +14,12 @@ const Transition = forwardRef(function Transition(props, ref) {
 })
 
 export const LoginDialog = ({ open, handleClose, handleSubmit }) => {
-    const [username, setUsername] = useState("")
+    const [email, setEmail] = useState("")
     const [password, setPassword] = useState("")
 
     const onSubmit = (event) => {
         event.preventDefault()
-        handleSubmit(username, password)
+        handleSubmit(email, password)
     }
 
     const handleEnterKeyDown = (event) => {
@@ -42,12 +42,12 @@ export const LoginDialog = ({ open, handleClose, handleSubmit }) => {
                     autoFocus
                     margin="dense"
                     id="username"
-                    label="Username"
+                    label="Email"
                     type="text"
                     fullWidth
                     variant="standard"
-                    value={username}
-                    onChange={(e) => setUsername(e.target.value)}
+                    value={email}
+                    onChange={(e) => setEmail(e.target.value)}
                 />
                 <TextField
                     margin="dense"

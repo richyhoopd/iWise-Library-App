@@ -27,6 +27,14 @@ app.use(
 
 app.use("/v1", apiV1)
 
+if (process.env.NODE_ENV === 'production') {
+  app.use(express.static(path.join(__dirname, 'frontend/build')));
+
+  app.get('*', (req, res) => {
+    res.sendFile(path.join(__dirname, 'frontend/build', 'index.html'));
+  });
+}
+
 app.use((req, res) => {
   return res.status(404).json({ error: "Route not found" })
 })
@@ -38,13 +46,13 @@ app.use((err, req, res, next) => {
 
 connectDb()
   .then(async () => {
-    const admin = await UserModel.findOne({ username: "admin" })
+    const admin = await UserModel.findOne({email: "admin@email.com" })
     if (admin == null) {
-      await UserModel.create({ username: "admin", password: "admin", role: "admin" })
+      await UserModel.create({ username: "administrador", email: "admin@email.com", password: "admin", role: "admin" })
     }
-    const guest = await UserModel.findOne({ username: "guest" })
+    const guest = await UserModel.findOne({ email: "guest@email.com" })
     if (guest == null) {
-      await UserModel.create({ username: "guest", password: "guest", role: "guest" })
+      await UserModel.create({ username: "guestt",  email: "guest@email.com", password: "guest", role: "guest" })
     }
   })
   .then(() => {

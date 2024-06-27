@@ -96,7 +96,7 @@ router.get("/profile", async (req, res, next) => {
 
 router.post("/login", async (req, res, next) => {
   try {
-    const user = await UserModel.findOne({ username: req.body.username })
+    const user = await UserModel.findOne({ email: req.body.email })
     if (user == null) {
       return res.status(404).json({ error: "usuario no encontrado" })
     }
@@ -112,16 +112,16 @@ router.post("/login", async (req, res, next) => {
 
 router.post("/register", async (req, res, next) => {
   try {
-    const usr = await UserModel.findOne({ username: req.body.username })
+    const usr = await UserModel.findOne({ email: req.body.email });
     if (usr != null) {
-      return res.status(400).json({ error: "Ya existe ese usuario, cambie el nombre" })
+      return res.status(400).json({ error: "Ya existe un usuario con ese correo electrónico." });
     }
-    const newUsr = await UserModel.create(req.body)
-    return res.status(200).json({ usr: omitPassword(newUsr.toJSON()) })
+    const newUsr = await UserModel.create(req.body);
+    return res.status(200).json({ usr: omitPassword(newUsr.toJSON()) });
   } catch (err) {
-    next(err)
+    next(err);
   }
-})
+});
 
 router.get("/logout", (req, res) => {
   req.session.destroy()

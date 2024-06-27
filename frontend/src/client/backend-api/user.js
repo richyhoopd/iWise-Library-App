@@ -19,10 +19,10 @@ const UserApi = {
     const res = await fetch("/v1/user/borrowed-books", { method: "GET" })
     return res.json()
   },
-  login: async (username, password) => {
+  login: async (email, password) => {
     const res = await fetch("/v1/user/login", {
       method: "POST",
-      body: JSON.stringify({ username, password }),
+      body: JSON.stringify({ email, password }),
       headers: { "Content-Type": "application/json" },
     })
     return res.json()
