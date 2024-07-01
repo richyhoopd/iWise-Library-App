@@ -1,6 +1,7 @@
 const router = require("express")()
 const { BookModel } = require("../models/book")
 const { UserModel } = require("../models/user")
+const { sendWelcomeEmail } = require('../../mailer')
 
 const omitPassword = (user) => {
   const { password, ...rest } = user
@@ -110,16 +111,21 @@ router.post("/login", async (req, res, next) => {
   }
 })
 
-router.post("/register", async (req, res, next) => {
+
+router.post('/register', async (req, res) => {
+  const { username, email, password } = req.body;
+
   try {
-    const usr = await UserModel.findOne({ email: req.body.email });
-    if (usr != null) {
-      return res.status(400).json({ error: "Ya existe un usuario con ese correo electrónico." });
-    }
-    const newUsr = await UserModel.create(req.body);
-    return res.status(200).json({ usr: omitPassword(newUsr.toJSON()) });
-  } catch (err) {
-    next(err);
+    // Crea el nuevo usuario
+    const user = await UserModel.create({ username, email, password });
+
+    // Envía el correo electrónico de bienvenida
+    await sendWelcomeEmail(user.email, user.username);
+
+    res.status(201).json({ message: 'Usuario registrado y correo enviado' });
+  } catch (error) {
+    console.error('Error al registrar usuario:', error);
+    res.status(500).json({ error: 'Error al registrar usuario' });
   }
 });
 

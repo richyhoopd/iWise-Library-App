@@ -175,7 +175,7 @@ export const BooksList = () => {
                   
                         <div className={`${classes.pageHeader} ${classes.mb2}`}>
                             
-                            <Typography variant="h5">Libros prestados</Typography>
+                            <Typography variant="h5">Libros rentados</Typography>
                         </div>
                         {borrowedBook.length > 0 ? (
                             <>

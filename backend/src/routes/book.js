@@ -1,5 +1,6 @@
 const router = require("express")()
 const { BookModel } = require("../models/book")
+const { sendRentalEmail } = require('../../mailer');
 
 router.get("/", async (req, res, next) => {
   try {
@@ -71,5 +72,31 @@ router.delete("/:bookIsbn", async (req, res, next) => {
     next(err)
   }
 })
+
+router.post("/:bookIsbn/rent", async (req, res, next) => {
+  try {
+    const book = await BookModel.findOne({ isbn: req.params.bookIsbn });
+    if (!book) {
+      return res.status(404).json({ error: "Libro no encontrado" });
+    }
+
+    const userId = req.body.userId; // Asume que el ID del usuario se pasa en el cuerpo de la solicitud
+    const userEmail = req.body.email; // Asume que el correo electrónico del usuario se pasa en el cuerpo de la solicitud
+
+    if (!book.borrowedBy.includes(userId)) {
+      book.borrowedBy.push(userId);
+      await book.save();
+
+      // Envía el correo electrónico de confirmación de renta
+      await sendRentalEmail(userEmail, book.name);
+
+      return res.status(200).json({ book });
+    } else {
+      return res.status(400).json({ error: "Este usuario ya ha rentado este libro" });
+    }
+  } catch (err) {
+    next(err);
+  }
+});
 
 module.exports = { router }
