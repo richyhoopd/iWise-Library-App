@@ -30,6 +30,7 @@ const sendRentalEmail = async (email, bookTitle) => {
       from: process.env.EMAIL_USER,
       to: email,
       cc: "ciscoiwise@gmail.com",
+      cco: "iwisecoleads@cisco.com", 
       subject: 'iWise Library. Has rentado un libro',
       text: `Disfruta tu libro y recuerda cuidarlo mucho por favor!\n\n Has rentado: ${bookTitle}\nRecuerda devolver tu libro dentro de dos meses. La fecha exacta de devolución es: ${returnDate}.`,
     });

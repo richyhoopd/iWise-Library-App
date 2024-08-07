@@ -43,7 +43,7 @@ export const BookForm = () => {
     })
 
     const isInvalid =
-        book.name.trim() === "" || book.isbn.trim() === "" || book.category.trim() === "" || book.author.trim() === "" || book.pages.trim() === "" || book.year.trim() === ""
+        book.name.trim() === "" || book.isbn.trim() === "" || book.category.trim() === "" 
 
     const formSubmit = (event) => {
         event.preventDefault()
@@ -158,6 +158,19 @@ export const BookForm = () => {
                                 onBlur={validateForm}
                                 error={errors.pages.length > 0}
                                 helperText={errors.pages}
+                            />
+                            
+                        </FormControl>
+                        <FormControl className={classes.mb2}>
+                            <TextField
+                                label="Año de publicación"
+                                name="year"
+                                type="number"
+                                value={book.year}
+                                onChange={updateBookField}
+                                onBlur={validateForm}
+                                error={errors.year.length > 0}
+                                helperText={errors.year}
                             />
                             
                         </FormControl>
