@@ -4,6 +4,13 @@ const BookModel = model(
   "books",
   new Schema({
     name: { type: String, required: true },
+
+    // implementar logica de esto en el controlador
+    author: { type: String, required: true },
+    pages: { type: Number, required: true },
+    year: { type: Number, required: true },
+    // hasta aqui
+    
     isbn: { type: String, required: true, unique: true },
     category: { type: String, required: true },
 

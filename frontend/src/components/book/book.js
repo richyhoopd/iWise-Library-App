@@ -113,6 +113,24 @@ export const Book = () => {
                     <TableCell>{book.name}</TableCell>
                   </TableRow>
                   <TableRow>
+                    <TableCell variant="head" component="th" width="200">
+                      Autor
+                    </TableCell>
+                    <TableCell>{book.author}</TableCell>
+                  </TableRow>
+                  <TableRow>
+                    <TableCell variant="head" component="th" width="200">
+                      Paginas
+                    </TableCell>
+                    <TableCell>{book.pages}</TableCell>
+                  </TableRow>
+                  <TableRow>
+                    <TableCell variant="head" component="th" width="200">
+                      Año
+                    </TableCell>
+                    <TableCell>{book.year}</TableCell>
+                  </TableRow>
+                  <TableRow>
                     <TableCell variant="head" component="th">
                       Clave
                     </TableCell>

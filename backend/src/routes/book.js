@@ -80,14 +80,14 @@ router.post("/:bookIsbn/rent", async (req, res, next) => {
       return res.status(404).json({ error: "Libro no encontrado" });
     }
 
-    const userId = req.body.userId; // Asume que el ID del usuario se pasa en el cuerpo de la solicitud
-    const userEmail = req.body.email; // Asume que el correo electrónico del usuario se pasa en el cuerpo de la solicitud
+    const userId = req.body.userId; 
+    const userEmail = req.body.email; 
 
     if (!book.borrowedBy.includes(userId)) {
       book.borrowedBy.push(userId);
       await book.save();
 
-      // Envía el correo electrónico de confirmación de renta
+      // envia la confirmacion de que se presto el libro
       await sendRentalEmail(userEmail, book.name);
 
       return res.status(200).json({ book });

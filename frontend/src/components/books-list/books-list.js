@@ -74,6 +74,10 @@ export const BooksList = () => {
                                 <TableHead>
                                     <TableRow>
                                         <TableCell>Nombre</TableCell>
+                                        <TableCell>Autor</TableCell>
+                                        <TableCell>Paginas</TableCell>
+                                        <TableCell>Año</TableCell>
+                                        
                                         <TableCell align="right">Clave</TableCell>
                                         <TableCell>Categoria</TableCell>
                                         <TableCell align="right">Cantidad</TableCell>
@@ -91,6 +95,10 @@ export const BooksList = () => {
                                             <TableCell component="th" scope="row">
                                                 {book.name}
                                             </TableCell>
+                                            <TableCell>{book.author}</TableCell>
+                                            <TableCell align="right">{book.pages}</TableCell>
+                                            <TableCell align="right">{book.year}</TableCell>
+                                            
                                             <TableCell align="right">{book.isbn}</TableCell>
                                             <TableCell>{book.category}</TableCell>
                                             <TableCell align="right">{book.quantity}</TableCell>
@@ -185,6 +193,9 @@ export const BooksList = () => {
                                             <TableHead>
                                                 <TableRow>
                                                     <TableCell>Nombre</TableCell>
+                                                    <TableCell>Autor</TableCell>
+                                                    <TableCell>Paginas</TableCell>
+                                                    <TableCell>Año</TableCell>
                                                     <TableCell align="right">ISBN</TableCell>
                                                     <TableCell>Categoria</TableCell>
                                                     {/* <TableCell align="right">Precio</TableCell> */}
@@ -197,6 +208,9 @@ export const BooksList = () => {
                                                         <TableCell component="th" scope="row">
                                                             {book.name}
                                                         </TableCell>
+                                                        <TableCell>{book.author}</TableCell>
+                                                        <TableCell>{book.pages}</TableCell>
+                                                        <TableCell>{book.year}</TableCell>
                                                         <TableCell align="right">{book.isbn}</TableCell>
                                                         <TableCell>{book.category}</TableCell>
                                                         {/* <TableCell align="right">{`$${book.price}`}</TableCell> */}

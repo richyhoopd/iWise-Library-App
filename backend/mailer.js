@@ -33,9 +33,9 @@ const sendRentalEmail = async (email, bookTitle) => {
       subject: 'iWise Library. Has rentado un libro',
       text: `Disfruta tu libro y recuerda cuidarlo mucho por favor!\n\n Has rentado: ${bookTitle}\nRecuerda devolver tu libro dentro de dos meses. La fecha exacta de devolución es: ${returnDate}.`,
     });
-    console.log('Rental email sent successfully');
+    console.log('confirmacion de renta enviada con exito');
   } catch (error) {
-    console.error('Error sending rental email:', error);
+    console.error('error enviando el correo de renta de libro:', error);
     throw error;
   }
 };

@@ -8,7 +8,7 @@ const sessions = require("express-session")
 const { apiV1 } = require("./routes")
 const { connectDb } = require("./db")
 const { UserModel } = require("./models/user")
-const path = require('path')  // Asegúrate de importar el módulo path
+const path = require('path')  // pendejo no importaste eso 
 
 const app = express()
 
@@ -17,6 +17,7 @@ app.use(express.json())
 app.use(cookieParser())
 app.use(express.urlencoded({ extended: false }))
 
+// lmao
 app.use(
   sessions({
     secret: process.env.SESSION_SECRET,

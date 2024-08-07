@@ -24,6 +24,9 @@ export const BookForm = () => {
     const navigate = useNavigate()
     const [book, setBook] = useState({
         name: "",
+        author: "",
+        pages: 0,
+        year: 0,
         isbn: bookIsbn || "",
         category: "",
         quantity: 0,
@@ -32,12 +35,15 @@ export const BookForm = () => {
     const [errors, setErrors] = useState({
         name: "",
         isbn: "",
+        author: "",
+        pages: "",
+        year: "",
         category: "",
         quantity: "",
     })
 
     const isInvalid =
-        book.name.trim() === "" || book.isbn.trim() === "" || book.category.trim() === ""
+        book.name.trim() === "" || book.isbn.trim() === "" || book.category.trim() === "" || book.author.trim() === "" || book.pages.trim() === "" || book.year.trim() === ""
 
     const formSubmit = (event) => {
         event.preventDefault()
@@ -80,7 +86,7 @@ export const BookForm = () => {
 
     const validateForm = (event) => {
         const { name, value } = event.target
-        if (["name", "isbn", "quantity"].includes(name)) {
+        if (["name", "author", "pages", "year", "isbn", "quantity"].includes(name)) {
             setBook((prevProd) => ({ ...prevProd, [name]: value.trim() }))
             if (!value.trim().length) {
                 setErrors({ ...errors, [name]: `${name} no puede estar vacio` })
@@ -88,7 +94,7 @@ export const BookForm = () => {
                 setErrors({ ...errors, [name]: "" })
             }
         }
-        if (["quantity"].includes(name)) {
+        if (["quantity", "year", "pages"].includes(name)) {
             if (isNaN(Number(value))) {
                 setErrors({ ...errors, [name]: "solo se permite ingresar numeros" })
             } else {
@@ -130,6 +136,32 @@ export const BookForm = () => {
                                 helperText={errors.name}
                             />
                         </FormControl>
+                        <FormControl className={classes.mb2}>
+                            <TextField
+                                label="Autor"
+                                name="author"
+                                required
+                                value={book.author}
+                                onChange={updateBookField}
+                                onBlur={validateForm}
+                                error={errors.author.length > 0}
+                                helperText={errors.author}
+                            />
+                        </FormControl>
+                        <FormControl className={classes.mb2}>
+                            <TextField
+                                label="Numero de Paginas"
+                                name="pages"
+                                type="number"
+                                value={book.pages}
+                                onChange={updateBookField}
+                                onBlur={validateForm}
+                                error={errors.pages.length > 0}
+                                helperText={errors.pages}
+                            />
+                            
+                        </FormControl>
+                        
                         <FormControl className={classes.mb2}>
                             <TextField
                                 label="Clave"
